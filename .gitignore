@@ -1,0 +1,23 @@
+# OS & Editors
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+*.lnk
+.vscode/
+.idea/
+*.swp
+*~
+
+# Build output
+_site/
+dist/
+build/
+
+# Logs
+*.log
+
+# Temp
+tmp/
+temp/
