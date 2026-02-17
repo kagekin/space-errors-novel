@@ -16,6 +16,27 @@
     --burgundy: #590725;
 }
 
+body.metaverse {
+    --bg: #050014;
+    --pink: #ff00ff;
+    --emerald: #00ffcc;
+    --teal: #00ffff;
+    --blue: #0088ff;
+    --lime: #ccff00;
+    --salmon: #ff3366;
+    --crimson: #ff0000;
+    --burgundy: #990033;
+    background: radial-gradient(circle at 50% 50%, #1a0b3c, #000);
+}
+
+body.metaverse .section-label {
+    text-shadow: 0 0 10px var(--emerald), 0 0 20px var(--emerald);
+}
+
+body.metaverse .hero-title {
+    filter: drop-shadow(0 0 10px var(--pink)) drop-shadow(0 0 30px var(--blue));
+}
+
 *,
 *::before,
 *::after {
@@ -832,4 +853,84 @@ footer p {
     .side-nav {
         display: none;
     }
+
+    .side-nav {
+        display: none;
+    }
+}
+
+/* === MODE TOGGLE BTN === */
+#mode-toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: linear-gradient(45deg, var(--blue), var(--pink));
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-family: 'WDXL Lubrifont JP N', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+    font-size: 1rem;
+}
+
+#mode-toggle-btn:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 0 20px var(--pink);
+}
+
+body.metaverse #mode-toggle-btn {
+    background: linear-gradient(45deg, var(--lime), var(--emerald));
+    color: #000;
+    border-color: #000;
+    box-shadow: 0 0 20px var(--lime);
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+/* === METAVERSE SPECIFIC STYLES === */
+body.metaverse .stars span {
+    border-radius: 0;
+    /* Digital squares */
+    background-color: var(--lime);
+    box-shadow: 0 0 5px var(--emerald);
+    animation-duration: 0.5s !important;
+    /* Faster chaotic movement */
+}
+
+body.metaverse .novel-card,
+body.metaverse .char-detail,
+body.metaverse .news-ticker-bar,
+body.metaverse .scroll-hint {
+    border: 1px solid var(--pink);
+    box-shadow: 0 0 10px var(--pink), inset 0 0 20px rgba(255, 0, 255, 0.1);
+    background: rgba(5, 0, 20, 0.8);
+    background-image: linear-gradient(0deg, transparent 50%, rgba(0, 255, 255, 0.05) 50%);
+    background-size: 100% 4px;
+    /* Scanline effect */
+}
+
+body.metaverse .news-ticker-bar {
+    border-color: var(--lime);
+    box-shadow: 0 0 15px var(--lime);
+    color: var(--lime);
+    text-shadow: 0 0 5px var(--emerald);
+}
+
+body.metaverse .hero-catch {
+    color: #fff;
+    text-shadow: 2px 0 var(--crimson), -2px 0 var(--blue);
 }

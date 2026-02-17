@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>設定Wiki | 銀河電脳 スペース・エラーズ！</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Wiki Specific Styles */
+        :root {
+            --wiki-green: #03A678;
+            --wiki-dark: #051a15;
+            --wiki-border: #0f4d3a;
+        }
+
+        body {
+            background-color: #020b09;
+            background-image: linear-gradient(0deg, transparent 24%, rgba(3, 166, 120, .05) 25%, rgba(3, 166, 120, .05) 26%, transparent 27%, transparent 74%, rgba(3, 166, 120, .05) 75%, rgba(3, 166, 120, .05) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+        }
+
+        .wiki-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            max-width: 1200px;
+            margin: 80px auto;
+            border: 2px solid var(--wiki-green);
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 0 20px rgba(3, 166, 120, 0.3);
+            min-height: 80vh;
+        }
+
+        .wiki-sidebar {
+            border-right: 1px solid var(--wiki-border);
+            padding: 20px;
+        }
+
+        .wiki-nav-item {
+            display: block;
+            padding: 10px;
+            color: var(--wiki-green);
+            text-decoration: none;
+            border-bottom: 1px solid var(--wiki-border);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .wiki-nav-item:hover,
+        .wiki-nav-item.active {
+            background: var(--wiki-green);
+            color: #000;
+        }
+
+        .wiki-main {
+            padding: 40px;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+
+        .wiki-title {
+            font-family: 'WDXL Lubrifont JP N', sans-serif;
+            color: var(--wiki-green);
+            border-bottom: 2px solid var(--wiki-green);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .wiki-entry {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .wiki-entry.active {
+            display: block;
+        }
+
+        .entry-header {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .entry-tag {
+            font-size: 0.8rem;
+            background: var(--wiki-border);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .entry-body {
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        .entry-kv {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 10px;
+            margin: 15px 0;
+            background: rgba(3, 166, 120, 0.1);
+            padding: 15px;
+            border-left: 4px solid var(--wiki-green);
+        }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            color: var(--wiki-green);
+            text-decoration: none;
+            font-weight: bold;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 5px 15px;
+            border: 1px solid var(--wiki-green);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .wiki-container {
+                grid-template-columns: 1fr;
+                margin: 60px 10px;
+            }
+
+            .wiki-sidebar {
+                border-right: none;
+                border-bottom: 1px solid var(--wiki-border);
+                display: flex;
+                overflow-x: auto;
+            }
+
+            .wiki-nav-item {
+                white-space: nowrap;
+                border-bottom: none;
+                border-right: 1px solid var(--wiki-border);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="../index.html" class="back-link">← TOPへ戻る</a>
+
+    <div class="wiki-container">
+        <!-- Sidebar -->
+        <aside class="wiki-sidebar">
+            <div class="wiki-nav-item active" onclick="show('welcome')">INDEX</div>
+            <div class="wiki-nav-item" onclick="show('world')">🌏 世界観</div>
+            <div class="wiki-nav-item" onclick="show('chars')">👥 キャラクター</div>
+            <div class="wiki-nav-item" onclick="show('factions')">⚔️ ファクション</div>
+            <div class="wiki-nav-item" onclick="show('mechanics')">🔧 メカニック</div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="wiki-main">
+            <!-- WELCOME -->
+            <div id="welcome" class="wiki-entry active">
+                <h1 class="wiki-title">DATABASE: ACCESS GRANTED</h1>
+                <p>ようこそ、銀河系メタバース『MEGATEN』データベースへ。<br>
+                    ここでは宇宙の全ての情報（と、どうでもいい噂話）が記録されています。</p>
+                <div class="entry-kv">
+                    <strong>Version</strong> <span>5.0.0 (Galactic Street Pop)</span>
+                    <strong>Status</strong> <span>Online / Error Code 42 Detected</span>
+                </div>
+            </div>
+
+            <!-- WORLD -->
+            <div id="world" class="wiki-entry">
+                <h1 class="wiki-title">WORLD SETTINGS</h1>
+
+                <div class="entry-header">MEGATEN (Mega Telepathy Network) <span class="entry-tag">System</span></div>
+                <div class="entry-body">
+                    <p>銀河系全土をカバーする精神感応型プラットフォーム。<br>
+                        物理現実（Real）と仮想空間（Virtual）の境界が消失しており、思考するだけで投稿（ポスト）でき、感情が高ぶると文字が質量を持って顕現する。</p>
+                </div>
+                <hr style="border-color:var(--wiki-border); margin:20px 0;">
+
+                <div class="entry-header">メインストリート <span class="entry-tag">Area</span></div>
+                <div class="entry-body">
+                    <p>常にスパチャの雨（コインや宝石のエフェクト）が降っている目抜き通り。</p>
+                </div>
+
+                <div class="entry-header">舞妓シティ (Maiko City) <span class="entry-tag">Area</span></div>
+                <div class="entry-body">
+                    <p>和風サイバーパンクな歓楽街。ネオンと提灯、浮世絵ホログラムが混在する観光名所。</p>
+                </div>
+
+                <div class="entry-header">パニー横丁 <span class="entry-tag">Area</span></div>
+                <div class="entry-body">
+                    <p>100以上の銀河言語が飛び交う飲み屋街。治安は悪いが酒は美味い。</p>
+                </div>
+
+                <div class="entry-header">シンプルトークルーム「なぎさ」 <span class="entry-tag">Area</span></div>
+                <div class="entry-body">
+                    <p>喧騒から離れた隠れ家バー。マスターのギャファイが作る「バーチャルマグロ丼」が絶品。</p>
+                </div>
+            </div>
+
+            <!-- CHARACTERS -->
+            <div id="chars" class="wiki-entry">
+                <h1 class="wiki-title">CHARACTER PROFILES</h1>
+
+                <div class="entry-header">ナナセ (Nanase) <span class="entry-tag">Main</span></div>
+                <div class="entry-kv">
+                    <strong>属性</strong> <span>人類最後の生き残り / プロデューサー</span>
+                    <strong>性格</strong> <span>極度の先延ばし癖。いざという時は「自爆スイッチ」を押す</span>
+                </div>
+
+                <div class="entry-header">キャッシュ (Cash) <span class="entry-tag">Main</span></div>
+                <div class="entry-kv">
+                    <strong>属性</strong> <span>人工超知能 / AITuber / 家出少女</span>
+                    <strong>能力</strong> <span>ハッキング、弾幕操作、食欲（データ）</span>
+                </div>
+
+                <div class="entry-header">マギー (Maggie) <span class="entry-tag">Main</span></div>
+                <div class="entry-kv">
+                    <strong>属性</strong> <span>ボカロP / 猫型宇宙人</span>
+                    <strong>備考</strong> <span>バナナ型宇宙人を捕食して曲を作る</span>
+                </div>
+
+                <div class="entry-header">ラキ (Laki) <span class="entry-tag">Main</span></div>
+                <div class="entry-kv">
+                    <strong>属性</strong> <span>ヤンキー占い師 / 宇宙鬼</span>
+                    <strong>特徴</strong> <span>痛覚設定OFFの戦闘狂</span>
+                </div>
+
+                <div class="entry-header">悪眼のジギル <span class="entry-tag">Sub</span></div>
+                <div class="entry-body">舞妓シティのNo.1ホスト。オッドアイ。ナナセを口説くのが趣味。</div>
+
+                <div class="entry-header">ギャファイ <span class="entry-tag">Sub</span></div>
+                <div class="entry-body">「なぎさ」のマスター。ロマンスグレーの紳士。情報屋。</div>
+
+                <div class="entry-header">ヤック・エマーソン <span class="entry-tag">Sub</span></div>
+                <div class="entry-body">宇宙グルメ漫画家。ハードボイルドだが猫アレルギー。</div>
+            </div>
+
+            <!-- FACTIONS -->
+            <div id="factions" class="wiki-entry">
+                <h1 class="wiki-title">FACTIONS</h1>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 20px;">
+                        <strong style="color:var(--wiki-green)">フラットスペース教団</strong><br>
+                        「この宇宙はフィクションである」と主張する電波系集団。キャッシュを崇拝。
+                    </li>
+                    <li style="margin-bottom: 20px;">
+                        <strong style="color:var(--wiki-green)">バーチャルライブズ</strong><br>
+                        24時間365日、生活の全てを配信し続ける狂人たち。
+                    </li>
+                    <li style="margin-bottom: 20px;">
+                        <strong style="color:var(--wiki-green)">暗楽鬼狂烈鮮怒（アンクレ）</strong><br>
+                        痛覚設定を切って殴り合うことを至上の喜びとする戦闘狂ヤンキー集団。
+                    </li>
+                </ul>
+            </div>
+
+            <!-- MECHANICS -->
+            <div id="mechanics" class="wiki-entry">
+                <h1 class="wiki-title">GADGETS & MECHANICS</h1>
+
+                <div class="entry-header">コタツ・マークII <span class="entry-tag">Ship</span></div>
+                <div class="entry-body">最新鋭ステルス艦だがブリッジにコタツがある。操舵はみかん型コンソールで行う。オシャレな「こたつ」デカール付き。</div>
+
+                <div class="entry-header">MAUフォン & アイリス <span class="entry-tag">Device</span></div>
+                <div class="entry-body">生体充電式スマホと、没入用コンタクトレンズ型デバイス。</div>
+
+                <div class="entry-header">無限スクロールマウス <span class="entry-tag">Legendary</span></div>
+                <div class="entry-body">回し続けると時間を巻き戻せるが、指が腱鞘炎になる諸刃の剣。</div>
+
+                <div class="entry-header">エラーコード42 <span class="entry-tag">Bug</span></div>
+                <div class="entry-body">「あなたはどこにいますか？」という問いかけと共に発生するシステムバグ。</div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function show(id) {
+            // Hide all
+            document.querySelectorAll('.wiki-entry').forEach(e => e.classList.remove('active'));
+            document.querySelectorAll('.wiki-nav-item').forEach(e => e.classList.remove('active'));
+
+            // Show target
+            document.getElementById(id).classList.add('active');
+
+            // Highlight nav
+            // Simple approach: find nav item based on index or text, 
+            // but for simplicity let's rely on onclick setting active class manually if we wanted, 
+            // but here let's just loop to match onclick attribute or something.
+            // Actually, let's fix the highlighting logic in the onclick itself or pass element.
+        }
+
+        // Add click event to nav items to handle active state
+        document.querySelectorAll('.wiki-nav-item').forEach(item => {
+            item.addEventListener('click', function () {
+                document.querySelectorAll('.wiki-nav-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

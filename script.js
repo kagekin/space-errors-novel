@@ -108,30 +108,104 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---------------------------------------------------------
     // 6. Superchat
     // ---------------------------------------------------------
-    const sc = document.getElementById('superchat-btn');
-    if (sc) sc.addEventListener('click', e => {
-        e.stopPropagation();
-        for (let i = 0; i < 25; i++) {
+    // ---------------------------------------------------------
+    // 6. Mode Toggle (Universe <-> Metaverse)
+    // ---------------------------------------------------------
+    const toggleBtn = document.getElementById('mode-toggle-btn');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('metaverse');
+            const isMeta = document.body.classList.contains('metaverse');
+
+            // Text update
+            toggleBtn.textContent = isMeta ? '💻 メタバース' : '🌌 宇宙モード';
+
+            // Effect
+            toggleBtn.style.transform = 'scale(0.9)';
+            setTimeout(() => toggleBtn.style.transform = '', 100);
+
+            // Glitch flash effect
+            const flash = document.createElement('div');
+            flash.style.position = 'fixed';
+            flash.style.inset = '0';
+            flash.style.background = isMeta ? '#fff' : '#000';
+            flash.style.zIndex = '9999';
+            flash.style.opacity = '0.8';
+            document.body.appendChild(flash);
+
             setTimeout(() => {
-                splat(
-                    window.innerWidth / 2 + (Math.random() - 0.5) * 500,
-                    window.innerHeight / 2 + (Math.random() - 0.5) * 500
-                );
-            }, i * 25);
-        }
-        const lines = [
-            '💸 ¥10,000 スパチャ飛びました！(嘘)',
-            '🍌 バナナ3本分！ナナセ「食費に回して…」',
-            '🤖 キャッシュ「ありがとー！…課金してないけどな」',
-            '🐱 マギー「ニャハハ♪ もっとちょうだい！」',
-            '👹 ラキ「気合いだけはSSSランクだ！」',
-            '🛸 コタツ号「暖房費不足…省エネモードに移行します」'
-        ];
-        alert(lines[Math.floor(Math.random() * lines.length)]);
-    });
+                flash.style.opacity = '0';
+                setTimeout(() => flash.remove(), 200);
+            }, 50);
+
+            // Splatter burst
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    splat(
+                        window.innerWidth / 2 + (Math.random() - 0.5) * 800,
+                        window.innerHeight / 2 + (Math.random() - 0.5) * 800
+                    );
+                }, i * 10);
+            }
+
+            // Start Niconico comments if Metaverse mode is ON
+            if (isMeta) {
+                startNicoComments();
+            } else {
+                stopNicoComments();
+            }
+        });
+    }
 
     // ---------------------------------------------------------
-    // 7. Share
+    // 7. Niconico Comments
+    // ---------------------------------------------------------
+    let nicoInterval;
+    const COMMENTS = [
+        'ｷﾀ━━━━(ﾟ∀ﾟ)━━━━!!',
+        'wwwwwwwwwwww',
+        'SPACE ERRORS!!',
+        'MEGATEN LOGIN...',
+        'ERROR 42??',
+        'スパチャ投げさせろ',
+        '888888888888',
+        '神神神神神',
+        '初見です',
+        'バナナ！？',
+        '🌌🚀👾',
+        '💾 LOADING...',
+        '草',
+        'かわヨ',
+        '！？！？！？'
+    ];
+
+    function startNicoComments() {
+        if (nicoInterval) clearInterval(nicoInterval);
+        nicoInterval = setInterval(() => {
+            if (!document.body.classList.contains('metaverse')) return;
+            const div = document.createElement('div');
+            div.className = 'nico-comment';
+            div.textContent = COMMENTS[Math.floor(Math.random() * COMMENTS.length)];
+            div.style.top = Math.random() * 80 + '%';
+            div.style.fontSize = (Math.random() * 2 + 1.5) + 'rem';
+            // Random color for cyber feel
+            const colors = ['#00ff00', '#ff00ff', '#00ffff', '#ffff00', '#ffffff'];
+            div.style.color = colors[Math.floor(Math.random() * colors.length)];
+
+            document.body.appendChild(div);
+
+            // Remove after animation
+            setTimeout(() => div.remove(), 6000);
+        }, 300); // New comment every 300ms
+    }
+
+    function stopNicoComments() {
+        if (nicoInterval) clearInterval(nicoInterval);
+        document.querySelectorAll('.nico-comment').forEach(e => e.remove());
+    }
+
+    // ---------------------------------------------------------
+    // 8. Share
     // ---------------------------------------------------------
     window.shareTwitter = () => {
         const u = encodeURIComponent(location.href);
