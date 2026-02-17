@@ -1,19 +1,21 @@
-# Space Errors Teaser Website Redesign
+# Space Errors! 特設サイト リデザイン
 
-- [x] Design Planning <!-- id: 0 -->
-    - [x] Create `implementation_plan.md` <!-- id: 1 -->
-    - [x] Define Design Direction (Benchmark Analysis) <!-- id: 1.1 -->
-- [x] Implementation <!-- id: 2 -->
-    - [x] Create/Update `index.html` with new design <!-- id: 3 -->
-    - [x] Create `style.css` (or embed in HTML) <!-- id: 4 -->
-    - [x] Add `updates.json` connection (restore if broken) <!-- id: 5 -->
-- [x] Verification <!-- id: 6 -->
-    - [x] Check mobile responsiveness <!-- id: 7 -->
-    - [x] Verify "Coming Soon" vibe <!-- id: 8 -->
-- [x] Website Expansion <!-- id: 9 -->
-    - [x] Create `expansion_proposal.md` <!-- id: 10 -->
-    - [/] Generate Assets (Logo, Char Icons) <!-- id: 10.1 -->
-    - [/] Update `index.html` (Premium Design, Novel, Media, Share) <!-- id: 11 -->
-    - [ ] Update `style.css` (Animations, Glitch, Neon) <!-- id: 11.1 -->
-    - [ ] Update `script.js` (Share logic, Visuals) <!-- id: 12 -->
-    - [ ] Create sample chapter page <!-- id: 13 -->
+- [x] デザイン計画 <!-- id: 0 -->
+    - [x] 実装計画書の作成 <!-- id: 1 -->
+    - [x] ベンチマーク分析（ミルキーサブウェイ、超かぐや姫） <!-- id: 1.1 -->
+    - [x] カラーパレット＆デザイン方針の確定（レトロポップ） <!-- id: 1.2 -->
+- [x] 実装 Phase 1: 基本構造 <!-- id: 2 -->
+    - [x] `index.html` — Hero、ニュースティッカー、キャラ紹介 <!-- id: 3 -->
+    - [x] `style.css` — レトロポップCSS <!-- id: 4 -->
+    - [x] `script.js` — ティッカー接続、インタラクション <!-- id: 5 -->
+- [x] 実装 Phase 2: 機能拡張 <!-- id: 9 -->
+    - [x] 世界観セクション追加 <!-- id: 9.1 -->
+    - [x] 連載小説リンク（カクヨム / TALES） <!-- id: 9.2 -->
+    - [x] メディアミックス Coming Soon エリア <!-- id: 9.3 -->
+    - [x] SNSシェアボタン（X / LINE / リンクコピー） <!-- id: 9.4 -->
+    - [x] 擬似スパチャボタン <!-- id: 9.5 -->
+    - [x] クリック＝インク飛沫エフェクト <!-- id: 9.6 -->
+- [ ] 残タスク <!-- id: 13 -->
+    - [ ] キャラ画像の差し替え（ユーザー作成後） <!-- id: 13.1 -->
+    - [ ] OGP画像の設定 <!-- id: 13.2 -->
+    - [ ] サンプルチャプターページの作成 <!-- id: 13.3 -->

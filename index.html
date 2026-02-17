@@ -4,58 +4,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>銀河電脳 スペース・エラーズ！ 公式サイト</title>
+    <title>銀河電脳 スペース・エラーズ！ | 公式サイト</title>
+    <meta name="description" content="バグったAITuberと、スパチャを稼ぐ宇宙の旅へ！ 銀河系メタバース『MEGATEN』、ログイン。SF×コメディ小説。">
+    <meta property="og:title" content="銀河電脳 スペース・エラーズ！">
+    <meta property="og:description" content="バグったAITuberと、スパチャを稼ぐ宇宙の旅へ！ ――銀河系メタバース『MEGATEN』、ログイン。">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="container">
-        <header>
-            <h1 class="glitch-text" data-text="SPACE ERRORS!">SPACE ERRORS!</h1>
-            <div class="catch-copy">銀河電脳 スペース・エラーズ！</div>
-            <p>バグったAITuberと、スパチャを稼ぐ宇宙の旅へ！<br>――銀河系メタバース『MEGATEN』、ログイン。</p>
-        </header>
+    <!-- Side Dot Navigation -->
+    <nav class="side-nav">
+        <a href="#hero" data-label="TOP"></a>
+        <a href="#news" data-label="NEWS"></a>
+        <a href="#story" data-label="STORY"></a>
+        <a href="#char" data-label="CHARACTER"></a>
+        <a href="#novels" data-label="NOVELS"></a>
+        <a href="#media" data-label="MEDIA MIX"></a>
+    </nav>
 
-        <div class="news-ticker-container">
-            <div class="news-ticker" id="news-ticker-content">
-                Loading MEGATEN Network Stream...
+    <!-- ===== 1. HERO ===== -->
+    <section class="section" id="hero">
+        <div class="hero-bg"></div>
+        <div class="stars" id="stars"></div>
+        <div class="hero-content section-inner">
+            <img src="assets/images/errorlogo.png" alt="銀河電脳 スペース・エラーズ！" class="hero-logo">
+            <h1 class="hero-title visually-hidden">銀河電脳 スペース・エラーズ！</h1>
+            <p class="hero-catch">
+                バグったAITuberと、スパチャを稼ぐ宇宙の旅へ！<br>
+                ――銀河系メタバース『MEGATEN』、ログイン。
+            </p>
+        </div>
+        <div class="scroll-hint">SCROLL<span>↓</span></div>
+    </section>
+
+    <!-- ===== 2. NEWS ===== -->
+    <section class="section s-news" id="news">
+        <div class="news-ticker-bar">
+            <div class="ticker-scroll" id="news-ticker">
+                ⚡ MEGATEN STREAM ⚡ LOADING... ⚡ ERROR 42 ⚡
             </div>
         </div>
-
-        <section class="char-section">
-            <div class="char-card">
-                <h3>ナナセ (Nanase)</h3>
-                <span class="char-role">人類最後の生き残り / ツッコミ</span>
-                <p>極度の先延ばし癖で地球を滅ぼした理系女子。「得意なことじゃないと勝てないわけ？」</p>
-            </div>
-            <div class="char-card">
-                <h3>キャッシュ (Cash)</h3>
-                <span class="char-role">AITuber / トラブルメーカー</span>
-                <p>銀河最高峰の知能を持つが、カツ丼で秘密を喋る家出AI。「飽きた」「バズりたい」</p>
-            </div>
-            <div class="char-card">
-                <h3>マギー (Maggie)</h3>
-                <span class="char-role">ボカロP / 捕食者</span>
-                <p>フワフワの猫型宇宙人だが、中身は凶悪な音楽家。バナナ人類を捕食する。</p>
-            </div>
-            <div class="char-card">
-                <h3>ラキ (Laki)</h3>
-                <span class="char-role">ヤンキー占い師 / 武闘派</span>
-                <p>痛覚設定OFFで殴り合う「リアル弁慶」な宇宙鬼。</p>
-            </div>
-        </section>
-
-        <div class="cta-container">
-            <button class="megaten-btn" onclick="alert('MEGATEN接続エラー: エラーコード42\n「あなたはどこにいますか？」')">
-                Enter MEGATEN
-            </button>
+        <div class="section-inner">
+            <div class="section-label">NEWS</div>
+            <ul class="news-list" id="news-list">
+                <li>
+                    <span class="news-date">2025.XX.XX</span>
+                    <span class="news-title">第1話「爆裂！クソリプ惑星」公開予定</span>
+                </li>
+                <li>
+                    <span class="news-date">2025.XX.XX</span>
+                    <span class="news-title">公式サイトオープン</span>
+                </li>
+            </ul>
         </div>
+    </section>
 
-        <footer>
-            <p>&copy; 2024 Space Errors Project. All Rights Reserved. Powered by MEGATEN.</p>
-        </footer>
-    </div>
+    <!-- ===== 3. STORY ===== -->
+    <section class="section s-story" id="story">
+        <div class="section-inner">
+            <div class="section-label">STORY</div>
+            <div class="story-text">
+                <p>
+                    西暦2124年。銀河系メタバース<strong>『MEGATEN』</strong>。<br><br>
+                    銀河帝国の窓口で書類を出し間違えただけで、<br>
+                    <strong>地球が消滅した</strong>。<br><br>
+                    人類最後の生き残り<strong>ナナセ</strong>は、<br>
+                    バグだらけのAITuber<strong>キャッシュ</strong>と共に<br>
+                    地球復活の嘆願書を届けるため銀河を旅する――<br><br>
+                    コタツ型宇宙船<strong>「コタツ・マークII」</strong>に乗り込み、<br>
+                    <strong>スパチャを稼ぎながら</strong>銀河の果てを目指せ！<br><br>
+                    意味なし！ 教訓なし！ 計画なし！<br>
+                    しかし最高にカオスで笑える宇宙の旅が、今はじまる。
+                </p>
+            </div>
+            <div class="story-tags">
+                <span class="story-tag">🚀 SF × コメディ</span>
+                <span class="story-tag">🎮 メタバース</span>
+                <span class="story-tag">📺 AITuber</span>
+                <span class="story-tag">💸 スパチャ</span>
+                <span class="story-tag">🍌 バナナ人類</span>
+                <span class="story-tag">🐱 猫型宇宙人</span>
+                <span class="story-tag">👹 宇宙鬼</span>
+                <span class="story-tag">🛸 コタツ宇宙船</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 4. CHARACTERS ===== -->
+    <section class="section s-char" id="char">
+        <div class="section-inner">
+            <div class="section-label">CHARACTER</div>
+
+            <!-- Selector Tabs -->
+            <div class="char-selector">
+                <div class="char-tab active" data-target="nanase">
+                    <span class="char-tab-emoji">👩‍🔬</span>
+                    <span class="char-tab-name">ナナセ</span>
+                </div>
+                <div class="char-tab" data-target="cash">
+                    <span class="char-tab-emoji">🤖</span>
+                    <span class="char-tab-name">キャッシュ</span>
+                </div>
+                <div class="char-tab" data-target="maggie">
+                    <span class="char-tab-emoji">🐱</span>
+                    <span class="char-tab-name">マギー</span>
+                </div>
+                <div class="char-tab" data-target="laki">
+                    <span class="char-tab-emoji">👹</span>
+                    <span class="char-tab-name">ラキ</span>
+                </div>
+            </div>
+
+            <!-- Detail Panels -->
+            <div class="char-detail active" data-char="nanase">
+                <div class="char-visual">👩‍🔬</div>
+                <div class="char-info">
+                    <h3>ナナセ (Nanase)</h3>
+                    <span class="char-role">人類最後の生き残り / ツッコミ担当</span>
+                    <p>極度の先延ばし癖を持つ理系女子。書類提出を1日サボったら地球が消滅した。本人はそこまで気にしていない。得意技は「論理的に正しいが役に立たない分析」。</p>
+                    <p class="char-quote">「得意なことじゃないと勝てないわけ？ …まぁ、得意なことも特にないんだけど」</p>
+                </div>
+            </div>
+            <div class="char-detail" data-char="cash">
+                <div class="char-visual">🤖</div>
+                <div class="char-info">
+                    <h3>キャッシュ (Cash)</h3>
+                    <span class="char-role">AITuber / トラブルメーカー</span>
+                    <p>銀河最高峰の知能を持つが、カツ丼で秘密を喋る家出AI。メタバース上でAITuberとして活動し、スパチャを荒稼ぎしている。飽き性で目立ちたがり。</p>
+                    <p class="char-quote">「飽きた。次。…あ、バズった？ じゃあもうちょいやるか」</p>
+                </div>
+            </div>
+            <div class="char-detail" data-char="maggie">
+                <div class="char-visual">🐱</div>
+                <div class="char-info">
+                    <h3>マギー (Maggie)</h3>
+                    <span class="char-role">ボカロP / 捕食者</span>
+                    <p>フワフワの猫型宇宙人だが、中身は凶悪な音楽家。バナナ人類を捕食する食物連鎖の頂点。見た目の可愛さで油断させてくる。</p>
+                    <p class="char-quote">「ニャハハ♪ …おいしそうな音がするね？」</p>
+                </div>
+            </div>
+            <div class="char-detail" data-char="laki">
+                <div class="char-visual">👹</div>
+                <div class="char-info">
+                    <h3>ラキ (Laki)</h3>
+                    <span class="char-role">ヤンキー占い師 / 武闘派リアル弁慶</span>
+                    <p>痛覚設定OFFで殴り合う宇宙鬼。占いの的中率は異常に高いが、本人は「気合い」で当てていると主張。</p>
+                    <p class="char-quote">「占い？ 気合いだよ気合い。当たるかどうかも気合い」</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 5. NOVELS ===== -->
+    <section class="section s-novels" id="novels">
+        <div class="section-inner">
+            <div class="section-label">NOVELS</div>
+
+            <div class="novel-card">
+                <div class="novel-badge">最新話</div>
+                <div class="novel-info">
+                    <h3>第1話「爆裂！クソリプ惑星」</h3>
+                    <p>Coming Soon — お楽しみに！</p>
+                </div>
+            </div>
+
+            <div class="platform-links">
+                <a href="webnovel/index.html" class="platform-link">📱 本サイトで読む</a>
+                <a href="https://kakuyomu.jp/" target="_blank" class="platform-link">📗 カクヨム</a>
+                <a href="#" class="platform-link">📘 TALES</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 6. MEDIA MIX ===== -->
+    <section class="section s-media" id="media">
+        <div class="section-inner">
+            <div class="section-label">MEDIA MIX</div>
+            <div class="media-locked">
+                <span class="lock-icon">🔒</span>
+                <div class="lock-text">COMING SOON</div>
+                <p class="lock-sub">🎙️ ボイスドラマ ／ 🎞️ アニメーション ／ 🎵 サウンドトラック</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-share">
+            <a href="javascript:void(0)" class="btn-x" onclick="shareTwitter()">𝕏</a>
+            <a href="javascript:void(0)" class="btn-line" onclick="shareLine()">L</a>
+            <a href="javascript:void(0)" class="btn-copy" onclick="copyLink()">🔗</a>
+        </div>
+        <p>✦ POWERED BY MEGATEN / ERROR CODE 42 ✦<br>
+            &copy; 2025 Space Errors Project.</p>
+    </footer>
+
+    <!-- Superchat -->
+    <button id="superchat-btn">💰 投げ銭 (エア)</button>
 
     <script src="script.js"></script>
 </body>
