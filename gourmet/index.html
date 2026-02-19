@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マギーの銀河グルメガイド | 銀河電脳 スペース・エラーズ！</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            background-color: #001a15;
+            color: #fff;
+            font-family: 'Mochiy Pop P One', sans-serif;
+            overflow-x: hidden;
+            background-image: radial-gradient(#03A678 1px, transparent 1px), radial-gradient(#E7F294 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header-banner {
+            background: #E7F294;
+            color: #001a15;
+            padding: 20px;
+            text-align: center;
+            transform: rotate(-2deg);
+            margin: 40px 0 60px;
+            box-shadow: 10px 10px 0 #03A678;
+            border: 4px solid #000;
+        }
+
+        .gourmet-card {
+            background: #fff;
+            color: #000;
+            border-radius: 20px;
+            margin-bottom: 60px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 4px solid #000;
+            position: relative;
+        }
+
+        .card-header {
+            background: #03A678;
+            color: #fff;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-name {
+            font-size: 1.5rem;
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 0 #000;
+        }
+
+        .card-body {
+            padding: 25px;
+            line-height: 1.8;
+        }
+
+        .lyrics-box {
+            background: #000;
+            color: #E7F294;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            position: relative;
+            font-family: monospace;
+        }
+
+        .lyrics-box::before {
+            content: '♪ NOW PLAYING';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: #D91438;
+            color: #fff;
+            padding: 2px 10px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+        }
+
+        .floating-note {
+            position: absolute;
+            font-size: 2rem;
+            animation: floatNote 3s infinite;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        @keyframes floatNote {
+            0% {
+                transform: translateY(0) rotate(0);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-50px) rotate(20deg);
+                opacity: 0;
+            }
+        }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            /* Same style as others */
+            z-index: 100;
+            background: #000;
+            color: #E7F294;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 30px;
+            border: 2px solid #E7F294;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="../index.html" class="back-link">← TOPへ戻る</a>
+
+    <div class="container">
+        <div class="header-banner">
+            <h1>🐱 マギーの銀河グルメガイド 🍽️</h1>
+            <p>〜美味しいものは歌になる〜</p>
+        </div>
+
+        <!-- Item 1 -->
+        <article class="gourmet-card">
+            <div class="card-header">
+                <span class="menu-name">🐟 仮想(バーチャル)・マグロ丼</span>
+                <span class="stars">★★★★★</span>
+            </div>
+            <div class="card-body">
+                <p><strong>場所:</strong> シンプルトークルーム「なぎさ」<br>
+                    <strong>価格:</strong> 800 Credits<br>
+                    <strong>レビュー:</strong><br>
+                    ニャー！これは完璧！データの切れ味が違うの！<br>
+                    舌の上で「旨味コード」が爆発する感じ！<br>
+                    ギャファイのおじいちゃん、いい仕事するじゃん！
+                </p>
+
+                <div class="lyrics-box">
+                    🎵 即興ソング『MAGURO-DATA-WAVE』<br><br>
+                    まぐろ〜 まぐろ〜<br>
+                    データの海で 泳いでる〜<br>
+                    パクっと食べたら 0と1〜<br>
+                    私の胃袋 満たされないけど<br>
+                    心は満タン メガバイト〜！
+                </div>
+            </div>
+            <div class="floating-note" style="top:10px; right:10px;">♪</div>
+            <div class="floating-note" style="bottom:10px; left:10px; animation-delay:1s;">♫</div>
+        </article>
+
+        <!-- Item 2 -->
+        <article class="gourmet-card">
+            <div class="card-header">
+                <span class="menu-name">🍲 舞妓シティの闇鍋</span>
+                <span class="stars">★★★☆☆</span>
+            </div>
+            <div class="card-body">
+                <p><strong>場所:</strong> 舞妓シティ・裏路地<br>
+                    <strong>価格:</strong> 500 Credits<br>
+                    <strong>レビュー:</strong><br>
+                    中身が見えない！怖い！でも美味い！<br>
+                    たぶん「タコの足（食用）」だと思うけど、<br>
+                    たまに「ネジ」みたいな食感があるのは何？鉄分？
+                </p>
+
+                <div class="lyrics-box">
+                    🎵 即興ソング『DARK-POT-PANIC』<br><br>
+                    なにが出るかな〜（怖）<br>
+                    食べたら分かるさ〜（危）<br>
+                    スープの底には 未知との遭遇<br>
+                    お腹壊しても 知らないよ〜<br>
+                    イエーイ！
+                </div>
+            </div>
+        </article>
+
+        <!-- Item 3 -->
+        <article class="gourmet-card">
+            <div class="card-header">
+                <span class="menu-name">🥤 パニー横丁の怪しいジュース</span>
+                <span class="stars">★★☆☆☆</span>
+            </div>
+            <div class="card-body">
+                <p><strong>場所:</strong> パニー横丁・自販機<br>
+                    <strong>価格:</strong> 120 Credits<br>
+                    <strong>レビュー:</strong><br>
+                    色がヤバイ。蛍光グリーン。光ってる。<br>
+                    飲んだら記憶が飛びそうになった。<br>
+                    作曲のインスピレーションは湧くかも？（副作用：頭痛）
+                </p>
+
+                <div class="lyrics-box">
+                    🎵 即興ソング『NEON-POISON』<br><br>
+                    飲んだら最後〜 記憶が飛ぶよ〜<br>
+                    ビビリビ・ビリビリ・シビれる舌〜<br>
+                    明日の私は 誰ですか？<br>
+                    サイケデリック・モーニング！
+                </div>
+            </div>
+        </article>
+    </div>
+</body>
+
+</html>

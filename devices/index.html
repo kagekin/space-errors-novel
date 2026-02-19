@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デバイスギャラリー | 銀河電脳 スペース・エラーズ！</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Orbitron', monospace;
+            overflow-x: hidden;
+            background-image: linear-gradient(0deg, #161b22 1px, transparent 1px), linear-gradient(90deg, #161b22 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            border-bottom: 2px solid #30363d;
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #58a6ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .device-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .device-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .device-card:hover {
+            border-color: #58a6ff;
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .device-img-placeholder {
+            height: 200px;
+            background: #0d1117;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #30363d;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .device-info {
+            padding: 20px;
+        }
+
+        .device-name {
+            font-size: 1.2rem;
+            color: #58a6ff;
+            margin-bottom: 10px;
+        }
+
+        .device-specs {
+            font-size: 0.9rem;
+            color: #8b949e;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .spec-item {
+            border-left: 2px solid #30363d;
+            padding-left: 10px;
+        }
+
+        .spec-label {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+
+        .device-desc {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background: #0d1117;
+            color: #58a6ff;
+            border: 1px solid #58a6ff;
+            padding: 5px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="../index.html" class="back-link">← SYSTEM RETURN</a>
+
+    <div class="container">
+        <div class="header">
+            <h1>DEVICE ARCHIVE</h1>
+            <p>MEGATEN TECH SPECS & BLUEPRINTS</p>
+        </div>
+
+        <div class="device-grid">
+            <!-- Item 1 -->
+            <div class="device-card">
+                <div class="device-img-placeholder">📱</div>
+                <div class="device-info">
+                    <div class="device-name">MAU Phone (Model X)</div>
+                    <div class="device-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">OS</span>
+                            MEGATEN 5.0
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">POWER</span>
+                            BIO-CHARGE
+                        </div>
+                    </div>
+                    <p class="device-desc">生体充電式の最新スマホ。握るだけで充電されるが、ストレスを感じると過充電で爆発する。</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="device-card">
+                <div class="device-img-placeholder">👁️</div>
+                <div class="device-info">
+                    <div class="device-name">Iris Lens</div>
+                    <div class="device-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">TYPE</span>
+                            AR/VR
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">CONN</span>
+                            NEURAL
+                        </div>
+                    </div>
+                    <p class="device-desc">網膜に直接情報を投影するコンタクトレンズ。広告ブロック機能付きだが、課金しないと視界の半分が広告になる。</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="device-card">
+                <div class="device-img-placeholder">🍊</div>
+                <div class="device-info">
+                    <div class="device-name">KOTATSU Mark II</div>
+                    <div class="device-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">CLASS</span>
+                            STEALTH
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">FUEL</span>
+                            MIKAN
+                        </div>
+                    </div>
+                    <p class="device-desc">最新鋭ステルス宇宙船。ブリッジがコタツ。カモフラージュ率99.9%だが、コタツから出たくなくなるデバフがかかる。</p>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="device-card">
+                <div class="device-img-placeholder">🖱️</div>
+                <div class="device-info">
+                    <div class="device-name">Null Scroll Mouse</div>
+                    <div class="device-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">RANK</span>
+                            LEGENDARY
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">RISK</span>
+                            HIGH
+                        </div>
+                    </div>
+                    <p class="device-desc">無限にスクロールできるマウス。逆回転させると時間を巻き戻せるらしいが、腱鞘炎になる確率が100%。</p>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="device-card">
+                <div class="device-img-placeholder">🔨</div>
+                <div class="device-info">
+                    <div class="device-name">BAN Hammer (Replica)</div>
+                    <div class="device-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">DMG</span>
+                            9999
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">CD</span>
+                            72h
+                        </div>
+                    </div>
+                    <p class="device-desc">運営のみが持つとされる伝説の武器のレプリカ。殴った相手を一時的にログアウトさせる（物理）。</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

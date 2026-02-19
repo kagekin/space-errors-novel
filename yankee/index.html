@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ラキの銀河ヤンキー番付 | 銀河電脳 スペース・エラーズ！</title>
+    <!-- Bold Japanese Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Reggae+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            background-color: #1a0505;
+            color: #fff;
+            font-family: 'Reggae One', sans-serif;
+            overflow-x: hidden;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CjxwYXRoIGQ9Ik0wIDExTDExIDBMMTIgMUwxIDEyWiIgZmlsbD0iI0Q5MTQzOCIgZmlsbC1vcGFjaXR5PSIwLjEiLz4KPC9zdmc+');
+        }
+
+        .fire-bg {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50vh;
+            background: linear-gradient(0deg, rgba(217, 20, 56, 0.5), transparent);
+            filter: blur(20px);
+            z-index: -1;
+            animation: burn 2s infinite alternate;
+        }
+
+        @keyframes burn {
+            0% {
+                opacity: 0.5;
+                height: 40vh;
+            }
+
+            100% {
+                opacity: 0.8;
+                height: 50vh;
+            }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .title-area {
+            font-size: 3rem;
+            color: #F280DF;
+            text-shadow: 4px 4px 0 #D91438;
+            margin-bottom: 50px;
+            transform: skew(-10deg);
+        }
+
+        /* Banzuke Style */
+        .banzuke-container {
+            border: 4px double #D91438;
+            background: #000;
+            padding: 20px;
+            position: relative;
+        }
+
+        .banzuke-row {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #333;
+            padding: 15px 0;
+            transition: 0.2s;
+        }
+
+        .banzuke-row:hover {
+            background: rgba(217, 20, 56, 0.2);
+        }
+
+        .banzuke-row:last-child {
+            border-bottom: none;
+        }
+
+        .rank {
+            width: 100px;
+            font-size: 1.5rem;
+            color: #F2A594;
+        }
+
+        .name {
+            flex: 1;
+            font-size: 1.8rem;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .comment {
+            flex: 2;
+            text-align: left;
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        .action {
+            width: 150px;
+        }
+
+        .fight-btn {
+            background: #D91438;
+            color: #fff;
+            border: 2px solid #fff;
+            padding: 5px 15px;
+            font-family: inherit;
+            cursor: pointer;
+            transform: skew(-10deg);
+            transition: 0.1s;
+        }
+
+        .fight-btn:hover {
+            transform: skew(-10deg) scale(1.1);
+            background: #fff;
+            color: #D91438;
+        }
+
+        .fight-btn:active {
+            transform: skew(-10deg) scale(0.9);
+        }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #D91438;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            z-index: 100;
+            border: 2px solid #fff;
+        }
+
+        @media (max-width: 768px) {
+            .banzuke-row {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .name,
+            .comment {
+                text-align: center;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fire-bg"></div>
+
+    <a href="../index.html" class="back-link">← TOPへ戻る</a>
+
+    <div class="container">
+        <h1 class="title-area">🔥 銀河ヤンキー番付 🔥</h1>
+        <p>「喧嘩上等！戦いたい奴リストだ、夜露死苦！」by ラキ</p>
+
+        <div class="banzuke-container">
+            <!-- Row 1 -->
+            <div class="banzuke-row">
+                <div class="rank">横綱</div>
+                <div class="name">???</div>
+                <div class="comment">「まだ会ったことねぇが、この宇宙のどこかに俺より強い奴がいるはずだ…」</div>
+                <div class="action"><button class="fight-btn" onclick="challenge('???')">挑戦状</button></div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="banzuke-row">
+                <div class="rank">大関</div>
+                <div class="name">キャッシュ</div>
+                <div class="comment">「AIだろうが関係ねぇ！あの生意気な口を物理で黙らせてやる！」</div>
+                <div class="action"><button class="fight-btn" onclick="challenge('キャッシュ')">挑戦状</button></div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="banzuke-row">
+                <div class="rank">関脇</div>
+                <div class="name">ジギル</div>
+                <div class="comment">「あのキザ野郎、顔面が良いのが腹立つ。一発入れたい。」</div>
+                <div class="action"><button class="fight-btn" onclick="challenge('ジギル')">挑戦状</button></div>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="banzuke-row">
+                <div class="rank">小結</div>
+                <div class="name">ナナセ</div>
+                <div class="comment">「弱ぇ。でもプロデューサーとしての根性は認めてやる（少しだけな）」</div>
+                <div class="action"><button class="fight-btn" onclick="challenge('ナナセ')">挑戦状</button></div>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="banzuke-row">
+                <div class="rank">前頭</div>
+                <div class="name">Vマグロ</div>
+                <div class="comment">「動きが読めねぇ…！ただのデータ魚のくせに、残像を残しやがる！」</div>
+                <div class="action"><button class="fight-btn" onclick="challenge('バーチャルマグロ')">挑戦状</button></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function challenge(name) {
+            const responses = [
+                '「おう！やってやんよ！」',
+                '「ビビってんのかァ！？」',
+                '「その意気だ！かかってこい！」',
+                '「まずはスクワット1万回やってこい！」'
+            ];
+            const res = responses[Math.floor(Math.random() * responses.length)];
+            alert(`【ラキの反応】\n\n${name}への挑戦状を受け取ったぜ！\n${res}`);
+        }
+    </script>
+</body>
+
+</html>

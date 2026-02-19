@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ワールドマップ | 銀河電脳 スペース・エラーズ！</title>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'DotGothic16', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #1a0b3c, #000);
+            overflow: hidden;
+        }
+
+        /* Scanline for map */
+        .map-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+
+        .grid-lines {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: perspective(500px) rotateX(20deg);
+            opacity: 0.5;
+        }
+
+        .location-pin {
+            position: absolute;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .location-pin:hover {
+            transform: scale(1.2);
+            z-index: 10;
+        }
+
+        .pin-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 0 10px #00ffff);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .pin-label {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ffff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: #00ffff;
+            margin-top: 5px;
+            display: inline-block;
+        }
+
+        /* Detail Modal */
+        .map-modal {
+            position: fixed;
+            bottom: -300px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 500px;
+            background: rgba(0, 20, 40, 0.95);
+            border: 2px solid #00ffff;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            transition: 0.5s;
+            z-index: 100;
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.3);
+        }
+
+        .map-modal.active {
+            bottom: 0;
+        }
+
+        .modal-title {
+            color: #00ffff;
+            border-bottom: 1px solid #00ffff;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            /* Same as others */
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ffff;
+            color: #00ffff;
+            padding: 5px 15px;
+            text-decoration: none;
+        }
+
+        /* Locations */
+        #loc-main {
+            top: 50%;
+            left: 50%;
+        }
+
+        #loc-maiko {
+            top: 30%;
+            left: 70%;
+        }
+
+        #loc-punny {
+            top: 70%;
+            left: 30%;
+        }
+
+        #loc-nagisa {
+            top: 20%;
+            left: 20%;
+        }
+
+        #loc-void {
+            top: 80%;
+            left: 80%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="../index.html" class="back-link">← TOPへ戻る</a>
+
+    <div class="map-container">
+        <div class="grid-lines"></div>
+
+        <!-- Main Street -->
+        <div class="location-pin" id="loc-main" onclick="showLoc('main')">
+            <div class="pin-icon">🏙️</div>
+            <div class="pin-label">メインストリート</div>
+        </div>
+
+        <!-- Maiko City -->
+        <div class="location-pin" id="loc-maiko" onclick="showLoc('maiko')">
+            <div class="pin-icon">🏮</div>
+            <div class="pin-label">舞妓シティ</div>
+        </div>
+
+        <!-- Punny Alley -->
+        <div class="location-pin" id="loc-punny" onclick="showLoc('punny')">
+            <div class="pin-icon">🍺</div>
+            <div class="pin-label">パニー横丁</div>
+        </div>
+
+        <!-- Nagisa -->
+        <div class="location-pin" id="loc-nagisa" onclick="showLoc('nagisa')">
+            <div class="pin-icon">🍸</div>
+            <div class="pin-label">隠れ家「なぎさ」</div>
+        </div>
+
+        <!-- Void -->
+        <div class="location-pin" id="loc-void" onclick="showLoc('void')">
+            <div class="pin-icon">🕳️</div>
+            <div class="pin-label">虚無領域</div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="map-modal" id="modal">
+        <div class="close-modal" onclick="closeModal()">×</div>
+        <h2 class="modal-title" id="m-title">LOCATION NAME</h2>
+        <p id="m-desc">Description goes here.</p>
+        <p style="font-size:0.8rem; color:#aaa; margin-top:10px;">座標: X-88, Y-21 / 危険度: <span id="m-danger">★</span></p>
+    </div>
+
+    <script>
+        const data = {
+            main: {
+                title: 'メインストリート',
+                desc: 'MEGATENの中心的エリア。常にスパチャの雨が降っており、地面はコインで埋め尽くされている。歩くだけでチャリンチャリンと音がする。',
+                danger: '★☆☆☆☆'
+            },
+            maiko: {
+                title: '舞妓シティ',
+                desc: '和風サイバーパンクな歓楽街。ホログラムの芸姑が踊り、ネオンの提灯が揺れる。観光客に人気だが、裏路地にはヤバイ店も。',
+                danger: '★★★☆☆'
+            },
+            punny: {
+                title: 'パニー横丁',
+                desc: '多種多様なエイリアンが集まる飲み屋街。銀河中の酒が飲めるが、翻訳機が誤作動すると喧嘩になる。',
+                danger: '★★★★☆'
+            },
+            nagisa: {
+                title: '隠れ家「なぎさ」',
+                desc: '会員制の静かなバー。マスターのギャファイが作るカクテルは絶品。情報交換の場としても使われる。',
+                danger: '☆☆☆☆☆'
+            },
+            void: {
+                title: '虚無領域 (VOID)',
+                desc: 'データが破損した立入禁止区域。エラーコード42が頻発する。近づくとアバターがバグる。',
+                danger: '★★★★★'
+            }
+        };
+
+        function showLoc(id) {
+            const d = data[id];
+            document.getElementById('m-title').textContent = d.title;
+            document.getElementById('m-desc').textContent = d.desc;
+            document.getElementById('m-danger').textContent = d.danger;
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+    </script>
+</body>
+
+</html>
